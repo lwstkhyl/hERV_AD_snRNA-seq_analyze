@@ -1,4 +1,4 @@
-,celltype,n_NC,n_AD,subfamily,p_val,avg_log2FC,pct.1,pct.2,p_val_adj
+,celltype,n_NC,n_AD,feature,p_val,avg_log2FC,pct.1,pct.2,p_val_adj
 1,Excit,26896,31494,HERV3-int,2.97E-122,0.865608175,0.199,0.136,1.78E-120
 2,Excit,26896,31494,Harlequin-int,3.93E-58,0.155436713,0.579,0.577,2.36E-56
 3,Excit,26896,31494,HERVL74-int,3.43E-27,-0.420353454,0.121,0.149,2.06E-25
