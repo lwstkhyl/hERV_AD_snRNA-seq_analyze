@@ -131,7 +131,7 @@ done
 
 - GSE157827：`_2`是cDNA，`_1`是barcode+UMI（16位bc+10位UMI）
 - GSE174367：`_3`是cDNA，`_2`是barcode+UMI（16位bc+12位UMI）
-  - 上面两个样本在运行STARsolo时，唯一差别是`--soloUMIlen`参数一个设置为10，另一个为12
+  - 上面两个样本在运行STARsolo时，差别是文件名和`--soloUMIlen`参数一个设置为10，另一个为12
 - GEO数据库里面说用的是10X Genomics v3，所以whitelist用`3M-february-2018.txt`（其实用v2的那个差别不是很大）
 - 每个样本（GSM）大约需要1-2h，推荐16线程+256G内存
 
@@ -160,6 +160,8 @@ for GSM in ${GSM_LIST}; do
     echo "${SRR_LIST}" | sed 's/^/  - /'
     cdna_files=$(echo "${SRR_LIST}" | sed "s|^|${fqDir}/|; s|$|_2.fastq.gz|" | paste -sd, -)
     bcumi_files=$(echo "${SRR_LIST}" | sed "s|^|${fqDir}/|; s|$|_1.fastq.gz|" | paste -sd, -)
+    # cdna_files=$(echo "${SRR_LIST}" | sed "s|^|${fqDir}/|; s|$|_3.fastq.gz|" | paste -sd, -)
+    # bcumi_files=$(echo "${SRR_LIST}" | sed "s|^|${fqDir}/|; s|$|_2.fastq.gz|" | paste -sd, -)
     for f in $(echo "${cdna_files}" | tr ',' ' ') $(echo "${bcumi_files}" | tr ',' ' '); do
         if [[ ! -f "${f}" ]]; then
         echo "[ERROR] Missing fastq: ${f}" >&2
